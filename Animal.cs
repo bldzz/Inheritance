@@ -24,6 +24,12 @@ namespace Inheritance
 
         // 3. Abstract method DoSound
         public abstract void DoSound();
+
+        
+        public virtual string Stats()
+        {
+            return $"Name: {Name}, Weight: {Weight}, Age: {Age}";
+        }
     }
 
     // 5. Subclass Horse
@@ -41,6 +47,12 @@ namespace Inheritance
         {
             Console.WriteLine("The horse neighs.");
         }
+
+        // New
+        public override string Stats()
+        {
+            return $"{base.Stats()}, Speed: {Speed} km/h";
+        }
     }
 
     // 5. Subclass Dog
@@ -57,6 +69,19 @@ namespace Inheritance
         public override void DoSound()
         {
             Console.WriteLine("The dog barks.");
+        }
+
+        // Override Stats() method for Dog
+        public override string Stats()
+        {
+            return $"{base.Stats()}, Breed: {Breed}";
+        }
+
+
+        // New Custom method specific to Dog class
+        public string DogMethod()
+        {
+            return $"{Name} is a loyal dog.";
         }
     }
 
@@ -162,6 +187,8 @@ namespace Inheritance
         {
             IsAggressive = isAggressive;
         }
+
+
     }
 
     // 10. IPerson interface with Talk method
@@ -180,6 +207,12 @@ namespace Inheritance
         public void Talk()
         {
             Console.WriteLine("The Wolfman speaks in a deep voice.");
+        }
+
+        // 2. Override Stats() method for Wolfman
+        public override string Stats()
+        {
+            return $"{base.Stats()}, Wolfman, Alpha: {IsAlpha}";
         }
     }
 
